@@ -76,6 +76,7 @@ header > img {
     display: block;
     margin: 1rem auto;
 }
+
 nav {
     background: linear-gradient(
         145deg, 
@@ -122,20 +123,41 @@ article {
     border-radius: 10px;
 }
 
+article > h2 {
+    text-shadow: var(--base-shadow);
+}
+
 .image-container{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .promotional {
+    --bg-image: url(../images/necklace-promo.png);
+    --bg-image-opacity: .35;
+    
     height: 10rem;
-    /* background-color: #000000; */
-    background-image: url(../images/necklace-promo.png);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    isolation: isolate;
+}
+
+.promotional::after {
+    background: var(--bg-image);
     background-size: 1000px;
     background-position: center;
     background-repeat: no-repeat;  
-    display: flex;
-    justify-content: space-between;
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: var(--bg-image-opacity);
+}
+
+.promotional:hover {
+    --bg-image-opacity: .9;
 }
 
 .promo-percentage {

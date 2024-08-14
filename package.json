@@ -1,0 +1,19 @@
+{
+  "name": "mangata-and-gallo",
+  "version": "1.0.0",
+  "description": "Mangata and Gallo Hoem Page for portofolio project at the Coursera front-end course by Meta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeGuerra5/mangata-and-gallo.git"
+  },
+  "author": "Felipe Baldim Guerra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelipeGuerra5/mangata-and-gallo/issues"
+  },
+  "homepage": "https://github.com/FelipeGuerra5/mangata-and-gallo#readme"
+}

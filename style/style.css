@@ -1,39 +1,43 @@
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik:wght@300&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
+
+:root {
+    /* Color Pallet */
     --color-white: #f5f5f5;
     --color-silver: #c6c2c2;
     --highlight-silver: #e0dddd;
-    --shadow-silver: #a8a6a6;    
+    --dark-silver: #a8a6a6;    
     --color-dark-blue: #001831;
     --color-gold: #daa520;
     --color-ruby: #c80000;
+    --color-deep-burgundy: #6D071A;
 
-    --base-shadow: 0 4px 6px #0000001a;
-    --base-shadow-2: 0 4px 6px #0000001a;
+    --base-shadow-color: #0000001a;
+    --base-shadow-hover-color: #0000001a;
+    --text-shadow-color: #00183121 ;
+
+    /* Shadows */
+    --base-shadow: 0 4px 6px var(--base-shadow-color);
+    --base-shadow-hover: 2px 6px 6px 4px var(--base-shadow-hover-color);
+    --text-shadow: 0 0 5px var(--text-shadow-color);
+
+    /* Color Colors  */
+    --nav-grad-1: var(--highlight-silver);
+    --nav-grad-2: var(--color-silver);
+    --nav-grad-3: var(--dark-silver);    
 
     /* Text Colors */
     --text-color-primary: var(--color-dark-blue);
-    --text-color-secondary: var(--color-white);
+    --promo-color: var(--color-deep-burgundy);
+    --a-hover-color: var(--color-ruby);
 
     /* Background Colors */
     --background-color-primary: var(--color-white);
-    --background-color-secondary: var(--color-dark-blue);
-
-    /* Border Colors */
-    --border-color-primary: var(--color-silver);
-    --border-color-secondary: var(--color-ruby);
-
-    /* Button Colors */
-    --button-color-primary: var(--color-gold);
-    --button-color-hover: var(--color-silver);
-    --button-text-color: var(--color-white);
 
     /* Link Colors */
-    --link-color: var(--color-ruby);
-    --link-hover-color: var(--color-gold);
-
+    --link-color: var(--color-dark-blue);
+    --link-color-hover: var(--color-deep-burgundy);
 }
-
 
 * {
     margin: 0;
@@ -48,11 +52,13 @@
 }
 
 body {
-    background-color: var(--color-white); /* White background */
-    color: #000000; /* Black text */
-    font-family: 'Arial', sans-serif;
-    font-family: 'Markazi text', 'serif';
+    background-color: var(--background-color-primary);
+    color: var(--text-color-primary);
+    font-family: "Tajawal", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     margin-top: 3rem;
+    margin-bottom: 3rem;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -80,9 +86,9 @@ header > img {
 nav {
     background: linear-gradient(
         145deg, 
-        var(--highlight-silver), 
-        var(--color-silver), 
-        var(--shadow-silver)
+        var(--nav-grad-1), 
+        var(--nav-grad-2), 
+        var(--nav-grad-3)
         );
     border-radius: 10px;
     box-shadow: var(--base-shadow);
@@ -118,14 +124,28 @@ section {
 article {
     display: block;
     width: 100%;
-    box-shadow: var(--base-shadow-2);  
-    padding: .5rem;
+    margin: .3rem;
+    box-shadow: var(--base-shadow);  
+    padding: 1rem;
     border-radius: 10px;
 }
 
-article > h2 {
-    text-shadow: var(--base-shadow);
+article:hover {
+    box-shadow: var(--base-shadow-hover);
 }
+
+article > h2 {
+    text-shadow: var(--text-shadow);
+}
+
+article > .image-container img {
+    transition: transform .3s ease;
+}
+
+article:hover > .image-container img {
+    transform: scale(1.1);
+}
+
 
 .pitch {
     margin-top: .9rem;
@@ -143,6 +163,7 @@ article > h2 {
     --bg-image-opacity: .35;
     
     height: 10rem;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -165,11 +186,24 @@ article > h2 {
     --bg-image-opacity: .9;
 }
 
+.promotional > div > h2 {
+    text-shadow: var(--text-shadow);
+}
+
 .promo-percentage {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    transition: transform .3s ease;
+}
+
+.promotional:hover .promo-percentage {
+    transform: scale(1.1);
+}
+
+.promo-percentage > * {
+    color: var(--promo-color);
 }
 
 footer {
@@ -178,9 +212,9 @@ footer {
     /* margin: 1rem auto; */
     background: linear-gradient(
         145deg, 
-        var(--highlight-silver), 
-        var(--color-silver), 
-        var(--shadow-silver)
+        var(--nav-grad-1), 
+        var(--nav-grad-2), 
+        var(--nav-grad-3)
         );
     border-radius: 10px;
     box-shadow: var(--base-shadow);
@@ -193,11 +227,6 @@ footer {
     align-content: center;
 }
 
-.footer-info:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
 a {
     color: var(--color-dark-gold);
     font-size: 1.1rem;
@@ -205,13 +234,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-ruby);
+    color: var(--a-hover-color);
     text-decoration: none;
 }
 
-/* Optional: Adding a border to separate content sections */
-.section {
-    border-top: 2px solid #C0C0C0; /* Silver border */
-    padding-top: 20px;
-    margin-top: 20px;
-}
